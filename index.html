@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Horizon Bank | Secure Online Banking</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="navbar hidden" id="navbar">
+    <h1>🏦 Horizon Bank</h1>
+    <button onclick="logout()">Logout</button>
+  </div>
+
+  <div class="login-container" id="loginPage">
+    <div class="login-card" id="loginFormContainer">
+      <h2>Customer Login</h2>
+      <form id="loginForm">
+        <label>Username</label><input type="text" id="username">
+        <label>Password</label><input type="password" id="password">
+        <button type="submit" class="btn-login">Sign In</button>
+        <p>New user? <button type="button" class="btn-switch-form" onclick="showRegisterForm()">Register</button></p>
+        <p>Are you Admin? <button type="button" class="btn-switch-form" onclick="showAdminLogin()">Admin Login</button></p>
+      </form>
+    </div>
+
+    <div class="login-card hidden" id="registerFormContainer">
+      <h2>Create New Account</h2>
+      <form id="registerForm">
+        <label>Full Name</label><input type="text" id="fullname">
+        <label>Email</label><input type="email" id="email">
+        <label>Mobile</label><input type="tel" id="mobile">
+        <label>Username</label><input type="text" id="regUsername">
+        <label>Password</label><input type="password" id="regPassword">
+        <label>Address</label><textarea id="address"></textarea>
+        <button type="submit" class="btn-login">Register</button>
+        <p>Already registered? <button type="button" class="btn-switch-form" onclick="showLoginForm()">Login</button></p>
+      </form>
+    </div>
+
+    <div class="login-card hidden" id="adminLoginContainer">
+      <h2>Admin Login</h2>
+      <form id="adminLoginForm">
+        <label>Admin Username</label><input type="text" id="adminUsername">
+        <label>Password</label><input type="password" id="adminPassword">
+        <button type="submit" class="btn-login">Admin Sign In</button>
+        <p>Back to Customer Login <button type="button" class="btn-switch-form" onclick="showLoginForm()">Go Back</button></p>
+      </form>
+    </div>
+  </div>
+
+  <div class="dashboard hidden" id="userDashboard">
+    <h2 id="welcomeMsg"></h2>
+    <p>Account Number: <strong id="userAccNo"></strong></p>
+    <h3>Balance: <span id="userBalance">$10000</span></h3>
+
+    <div class="mini-dashboard">
+      <div class="card">
+        <h3>Balance Overview</h3>
+        <canvas id="userPieChart"></canvas>
+      </div>
+      <div class="card">
+        <h3>Recent Transactions</h3>
+        <ul id="recentTx"></ul>
+      </div>
+    </div>
+
+    <div class="transfer-form">
+      <h3>Transfer Funds</h3>
+      <input type="number" id="transferToAcc" placeholder="Recipient Account Number">
+      <input type="number" id="transferAmount" placeholder="Amount">
+      <button class="btn-login" onclick="transferFunds()">Send Money</button>
+      <p id="transferMsg"></p>
+    </div>
+
+    <h3>Transaction History</h3>
+    <table>
+      <thead><tr><th>Date</th><th>From</th><th>To</th><th>Amount</th></tr></thead>
+      <tbody id="userTxBody"></tbody>
+    </table>
+  </div>
+
+  <div class="dashboard hidden" id="adminDashboard">
+    <h2>Admin Dashboard</h2>
+    <div class="admin-summary">
+      <div class="summary-card"><h3>Total Users</h3><p id="totalUsers">0</p></div>
+      <div class="summary-card"><h3>Total Available Amount</h3><p id="totalAmount">$0</p></div>
+      <div class="summary-card"><h3>Total Transferred</h3><p id="transferredAmount">$0</p></div>
+    </div>
+    <table>
+      <thead>
+        <tr><th>Name</th><th>Email</th><th>Mobile</th><th>Username</th><th>Account No</th><th>Address</th><th>Amount ($)</th><th>Status</th><th>Actions</th></tr>
+      </thead>
+      <tbody id="userTableBody"></tbody>
+    </table>
+    <canvas id="userChart"></canvas>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

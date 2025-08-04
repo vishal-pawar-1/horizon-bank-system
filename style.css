@@ -1,0 +1,34 @@
+﻿:root {
+  --primary: #0052a5;
+  --secondary: #ffc72c;
+  --danger: #e53935;
+  --success: #4caf50;
+  --gray-light: #ddd;
+  --light: #f5f5f5;
+  --shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  --radius: 8px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
+body { background: var(--light); }
+.navbar { background: var(--primary); color: white; padding: 15px; display: flex; justify-content: space-between; align-items: center; }
+.navbar button { background: var(--secondary); border: none; padding: 8px 15px; border-radius: var(--radius); cursor: pointer; }
+.login-container { display: flex; justify-content: center; align-items: center; height: 100vh; background: linear-gradient(135deg, #0052a5, #007bff); }
+.login-card { background: white; padding: 30px; width: 350px; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); margin: 10px; transition: transform 0.3s ease; }
+.login-card:hover { transform: translateY(-3px); }
+label { display: block; margin-top: 10px; }
+input, textarea { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid var(--gray-light); border-radius: var(--radius); }
+.btn-login { background: linear-gradient(90deg, #0052a5, #007bff); color: white; font-weight: bold; width: 100%; padding: 12px; border: none; border-radius: 25px; cursor: pointer; margin-top: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+.btn-login:hover { opacity: 0.9; }
+.btn-switch-form { background: none; border: none; color: var(--primary); cursor: pointer; text-decoration: underline; }
+.hidden { display: none; }
+.dashboard { max-width: 900px; margin: 30px auto; }
+.mini-dashboard { display: flex; gap: 20px; margin-top: 20px; flex-wrap: wrap; }
+.card { flex: 1; background: white; padding: 15px; border-radius: 8px; box-shadow: var(--shadow); }
+ul#recentTx { list-style: none; padding: 0; max-height: 200px; overflow: auto; }
+table { width: 100%; border-collapse: collapse; margin-top: 20px; background: white; border-radius: 8px; box-shadow: var(--shadow); overflow: hidden; }
+th, td { border: 1px solid var(--gray-light); padding: 10px; text-align: center; }
+.block-btn { background: orange; color: white; }
+.delete-btn { background: red; color: white; }
+.summary-card { background: white; padding: 15px; border-radius: 8px; flex: 1; min-width: 150px; box-shadow: var(--shadow); }
+.admin-summary { display: flex; gap: 20px; margin-bottom: 20px; flex-wrap: wrap; }
+canvas#userChart { margin-top: 20px; width: 100%; max-height: 300px; }
